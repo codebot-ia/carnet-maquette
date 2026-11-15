@@ -42,6 +42,8 @@
   --ease: cubic-bezier(0.2, 0, 0, 1);
   --rapide: 130ms;
   --sidebar: 260px;
+  --rail-w: 44px;
+  --pad-titre: 16px;
 }
 
 :root[data-theme='sombre'] {
@@ -80,7 +82,7 @@ body {
   font: 400 14.5px/1.5 var(--interface);
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, p, ul, li { margin: 0 }
+h1, h2, h3, p, ul, li { margin: 0 }
 ul { padding: 0; list-style: none }
 a { color: inherit; text-decoration: none }
 button, select, textarea { font: inherit; color: inherit }
@@ -254,6 +256,14 @@ main {
 .tri { margin-left: auto; color: var(--texte-2); font-size: 12px }
 
 .notes { display: grid }
+.groupe { display: grid }
+.groupe-tete {
+  display: flex; align-items: center; gap: var(--s2);
+  padding: 9px var(--s4) 9px calc(var(--rail-w) + var(--pad-titre));
+  background: var(--surface-2);
+  color: var(--texte); font-size: 12.5px; font-weight: 500;
+}
+.groupe-compte { margin-left: auto; color: var(--texte-2); font-family: var(--mono); font-size: 11.5px; font-weight: 400 }
 .note {
   position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr) 56px 34px;
   align-items: center; padding-right: var(--s2); border-bottom: 1px solid var(--filet);
@@ -270,7 +280,7 @@ main {
 
 .note-corps {
   display: grid; gap: 3px; min-width: 0;
-  padding: 11px var(--s3) 11px var(--s4);
+  padding: 11px var(--s3) 11px var(--pad-titre);
   border-radius: var(--r-m);
 }
 .note-titre {
@@ -281,7 +291,7 @@ main {
 .note-meta > span { display: inline-flex; align-items: center; gap: 5px }
 .prio { color: var(--texte); font-weight: 500 }
 .prio-moyenne { color: var(--texte-2); font-weight: 500 }
-.prio-basse { color: var(--texte-2); font-weight: 400 }
+.prio-basse, .prio-nulle { color: var(--texte-2); font-weight: 400 }
 .age { justify-self: end; color: var(--texte-2); font-size: 11.5px; white-space: nowrap }
 .envoyer {
   display: grid; place-items: center; width: 30px; height: 30px; margin-right: 2px; padding: 0;
@@ -347,6 +357,8 @@ main {
   .corps { grid-template-columns: minmax(0, 1fr); gap: var(--s5) }
   .panneau { position: static; order: 2 }
   .note { grid-template-columns: 38px minmax(0, 1fr) 40px; padding-right: var(--s3) }
+  :root { --rail-w: 38px; --pad-titre: 12px }
+  .groupe-tete { padding-right: var(--s3) }
   .note .envoyer { display: none }
   .tri { display: none }
   .file-tete { padding: 0 var(--s3) }
