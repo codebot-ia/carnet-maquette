@@ -18,7 +18,6 @@
 })()
 </script>
 <link rel="preload" href="./polices/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./polices/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -27,7 +26,7 @@
   <aside class="sidebar">
     <a class="marque" href="#">
       <span class="marque-signe">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H16l4 4v10.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 9h6M8 13h8"/></svg>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H16l4 4v10.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 9h6M8 13h8"/></svg>
       </span>
       Carnet
     </a>
@@ -46,9 +45,9 @@
       </div>
 
       <ul class="projets">
+        <li><a class="lien" href="#"><span class="pastille c-slate"></span><span class="coupe">Homelab</span><span class="compte">6</span></a></li>
         <li><a class="lien" href="#"><span class="pastille c-clay"></span><span class="coupe">Carnet</span><span class="compte">5</span></a></li>
         <li><a class="lien" href="#"><span class="pastille c-moss"></span><span class="coupe">MonSuiviOrdo</span><span class="compte">4</span></a></li>
-        <li><a class="lien" href="#"><span class="pastille c-slate"></span><span class="coupe">Homelab</span><span class="compte">6</span></a></li>
         <li><a class="lien" href="#"><span class="pastille c-ochre"></span><span class="coupe">Promos U</span><span class="compte">2</span></a></li>
         <li><a class="lien" href="#"><span class="pastille c-stone"></span><span class="coupe">Maison</span><span class="compte">2</span></a></li>
       </ul>
@@ -81,12 +80,9 @@
         <div>
           <h1>Dimanche 15 novembre</h1>
           <p class="entete-meta">
-            <span class="chiffre">16</span> notes à trier,
-            la plus ancienne depuis <span class="chiffre">9</span> jours
-            <span class="sep">·</span>
-            <span class="chiffre">3</span> en cours
-            <span class="sep">·</span>
-            <span class="chiffre">4</span> chez l'agent
+            <span><span class="chiffre">16</span> notes à faire, la plus ancienne depuis <span class="chiffre">9</span> jours</span>
+            <span class="fait"><span class="sep">·</span> <span class="chiffre">3</span> en cours</span>
+            <span class="fait"><span class="sep">·</span> <span class="chiffre">4</span> chez l'agent</span>
           </p>
         </div>
         <button type="button" class="bouton-icone" id="apparence" aria-label="Apparence : système">
@@ -96,7 +92,7 @@
 
       <form class="saisie" id="saisie">
         <div class="saisie-champ">
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h9"/></svg>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           <textarea id="note" rows="1" placeholder="Noter une idée" aria-label="Nouvelle note"></textarea>
         </div>
         <div class="saisie-barre">
@@ -126,206 +122,170 @@
           <div class="file-tete">
             <h2 id="titre-file" class="sr-only">Notes</h2>
             <div class="onglets" role="tablist" aria-label="Statut des notes">
-              <button type="button" role="tab" aria-selected="true" data-vue="nouvelle">À trier <span class="onglet-compte">16</span></button>
+              <button type="button" role="tab" aria-selected="true" data-vue="nouvelle">À faire <span class="onglet-compte">16</span></button>
               <button type="button" role="tab" aria-selected="false" data-vue="en-cours">En cours <span class="onglet-compte">3</span></button>
-              <button type="button" role="tab" aria-selected="false" data-vue="faites">Faites <span class="onglet-compte">68</span></button>
+              <button type="button" role="tab" aria-selected="false" data-vue="faites">Terminées <span class="onglet-compte">68</span></button>
             </div>
-            <p class="tri">les plus anciennes d'abord</p>
+            <p class="tri">priorité haute d'abord</p>
           </div>
 
           <ul class="notes" data-vue="nouvelle">
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Sauvegarde des photos : tester restic sur le NAS</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-slate"></span>Homelab</span>
-                  <span class="prio">Haute</span>
-                  <span class="piece"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-7.6 7.6a4.5 4.5 0 0 1-6.4-6.4l7.7-7.6a3 3 0 0 1 4.3 4.3l-7.7 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></svg>1</span>
-                  <span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Envoyée</span>
-                </span>
-              </a>
-              <span class="age">9 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Sauvegarde des photos : tester restic sur le NAS » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Le reverse proxy perd le certificat après un redémarrage</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-slate"></span>Homelab</span>
-                </span>
-              </a>
-              <span class="age">7 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Le reverse proxy perd le certificat après un redémarrage » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Exporter un projet entier en Markdown pour l'archiver</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-clay"></span>Carnet</span>
-                  <span class="prio">Haute</span>
-                </span>
-              </a>
-              <span class="age">6 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Exporter un projet entier en Markdown pour l'archiver » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">La date de fin ne se recalcule pas quand la posologie change</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span>
-                </span>
-              </a>
-              <span class="age">4 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « La date de fin ne se recalcule pas quand la posologie change » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Le compteur de la barre latérale ne suit pas le changement de projet</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-clay"></span>Carnet</span>
-                  <span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Envoyée</span>
-                </span>
-              </a>
-              <span class="age">4 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Le compteur de la barre latérale ne suit pas le changement de projet » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Widget Glance pour la température du boîtier</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-slate"></span>Homelab</span>
-                </span>
-              </a>
-              <span class="age">3 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Widget Glance pour la température du boîtier » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Garder le magasin choisi d'une visite à l'autre</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-ochre"></span>Promos U</span>
-                  <span class="prio basse">Basse</span>
-                </span>
-              </a>
-              <span class="age">2 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Garder le magasin choisi d'une visite à l'autre » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Changer le joint du robinet de la cuisine</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-stone"></span>Maison</span>
-                </span>
-              </a>
-              <span class="age">1 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Changer le joint du robinet de la cuisine » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Sauvegarde des photos : tester restic sur le NAS</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-slate"></span>Homelab</span><span class="prio prio-haute">Haute</span><span class="piece"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-7.6 7.6a4.5 4.5 0 0 1-6.4-6.4l7.7-7.6a3 3 0 0 1 4.3 4.3l-7.7 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></svg>1</span><span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Envoyée</span></span>
+      </a>
+      <span class="age">9 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Sauvegarde des photos : tester restic sur le NAS » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Le reverse proxy perd le certificat après un redémarrage</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-slate"></span>Homelab</span><span class="prio prio-haute">Haute</span></span>
+      </a>
+      <span class="age">7 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Le reverse proxy perd le certificat après un redémarrage » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Exporter un projet entier en Markdown pour l'archiver</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span><span class="prio prio-haute">Haute</span></span>
+      </a>
+      <span class="age">6 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Exporter un projet entier en Markdown pour l'archiver » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">La date de fin ne se recalcule pas quand la posologie change</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span><span class="prio prio-moyenne">Moyenne</span></span>
+      </a>
+      <span class="age">4 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « La date de fin ne se recalcule pas quand la posologie change » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Le compteur de la barre latérale ne suit pas le changement de projet</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span><span class="prio prio-moyenne">Moyenne</span><span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Envoyée</span></span>
+      </a>
+      <span class="age">4 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Le compteur de la barre latérale ne suit pas le changement de projet » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Garder le magasin choisi d'une visite à l'autre</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-ochre"></span>Promos U</span><span class="prio prio-basse">Basse</span></span>
+      </a>
+      <span class="age">2 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Garder le magasin choisi d'une visite à l'autre » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Widget Glance pour la température du boîtier</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-slate"></span>Homelab</span></span>
+      </a>
+      <span class="age">3 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Widget Glance pour la température du boîtier » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-nouvelle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Changer le joint du robinet de la cuisine</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-stone"></span>Maison</span></span>
+      </a>
+      <span class="age">1 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Changer le joint du robinet de la cuisine » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
           </ul>
 
           <ul class="notes" data-vue="en-cours" hidden>
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-en-cours" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Jellyfin 12 : les widgets demandent la nouvelle authentification</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-slate"></span>Homelab</span>
-                  <span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Envoyée</span>
-                </span>
-              </a>
-              <span class="age">5 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Jellyfin 12 : les widgets demandent la nouvelle authentification » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-en-cours" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Ranger les pièces jointes par date dans la fiche d'une note</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-clay"></span>Carnet</span>
-                </span>
-              </a>
-              <span class="age">3 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « Ranger les pièces jointes par date dans la fiche d'une note » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
-            <li class="note">
-              <span class="marge"><span class="marque-statut s-en-cours" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">La maquette ne s'affiche pas sur Safari en préprod</span>
-                <span class="note-meta">
-                  <span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span>
-                </span>
-              </a>
-              <span class="age">2 j</span>
-              <button type="button" class="envoyer" aria-label="Envoyer « La maquette ne s'affiche pas sur Safari en préprod » à l'agent">
-                <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
-              </button>
-            </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-en-cours" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Jellyfin 12 : les widgets demandent la nouvelle authentification</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-slate"></span>Homelab</span><span class="prio prio-haute">Haute</span><span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Envoyée</span></span>
+      </a>
+      <span class="age">5 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Jellyfin 12 : les widgets demandent la nouvelle authentification » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-en-cours" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Ranger les pièces jointes par date dans la fiche d'une note</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span><span class="prio prio-moyenne">Moyenne</span></span>
+      </a>
+      <span class="age">3 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « Ranger les pièces jointes par date dans la fiche d'une note » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
+    <li class="note">
+      <span class="marge"><span class="marque-statut s-en-cours" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">La maquette ne s'affiche pas sur Safari en préprod</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span><span class="prio prio-basse">Basse</span></span>
+      </a>
+      <span class="age">2 j</span>
+      <button type="button" class="envoyer" aria-label="Envoyer « La maquette ne s'affiche pas sur Safari en préprod » à l'agent">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg>
+      </button>
+    </li>
           </ul>
 
           <ul class="notes" data-vue="faites" hidden>
-            <li class="note fait">
-              <span class="marge"><span class="marque-statut s-faite" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Actualiser le compteur de la barre latérale au changement de projet</span>
-                <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span></span>
-              </a>
-              <span class="age">aujourd'hui</span>
-            </li>
-            <li class="note fait">
-              <span class="marge"><span class="marque-statut s-faite" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Garde le nom saisi au changement de couleur</span>
-                <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span></span>
-              </a>
-              <span class="age">hier</span>
-            </li>
-            <li class="note fait">
-              <span class="marge"><span class="marque-statut s-faite" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span>
-              <a class="note-corps" href="#">
-                <span class="note-titre">Publier la version 1.4 sur le dépôt de rendu</span>
-                <span class="note-meta"><span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span></span>
-              </a>
-              <span class="age">hier</span>
-            </li>
+    <li class="note fait">
+      <span class="marge"><span class="marque-statut s-faite" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Actualiser le compteur de la barre latérale au changement de projet</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span></span>
+      </a>
+      <span class="age">aujourd'hui</span>
+    </li>
+    <li class="note fait">
+      <span class="marge"><span class="marque-statut s-faite" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Garde le nom saisi au changement de couleur</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-clay"></span>Carnet</span></span>
+      </a>
+      <span class="age">hier</span>
+    </li>
+    <li class="note fait">
+      <span class="marge"><span class="marque-statut s-faite" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span>
+      <a class="note-corps" href="#">
+        <span class="note-titre">Publier la version 1.4 sur le dépôt de rendu</span>
+        <span class="note-meta"><span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span></span>
+      </a>
+      <span class="age">hier</span>
+    </li>
           </ul>
         </section>
 
         <aside class="panneau" aria-labelledby="titre-repartition">
-          <h2 id="titre-repartition">À trier par projet</h2>
+          <h2 id="titre-repartition">À faire par projet</h2>
           <ul class="repartition">
             <li>
               <div class="repartition-tete"><span class="projet"><span class="pastille c-slate"></span>Homelab</span><span class="chiffre">6</span></div>
@@ -337,7 +297,7 @@
             </li>
             <li>
               <div class="repartition-tete"><span class="projet"><span class="pastille c-moss"></span>MonSuiviOrdo</span><span class="chiffre">4</span></div>
-              <span class="jauge"><i style="width:66%"></i></span>
+              <span class="jauge"><i style="width:67%"></i></span>
             </li>
             <li>
               <div class="repartition-tete"><span class="projet"><span class="pastille c-ochre"></span>Promos U</span><span class="chiffre">2</span></div>
@@ -348,7 +308,7 @@
               <span class="jauge"><i style="width:33%"></i></span>
             </li>
           </ul>
-          <p class="panneau-total"><span class="chiffre">19</span> notes ouvertes, <span class="chiffre">68</span> faites</p>
+          <p class="panneau-total"><span class="chiffre">19</span> notes ouvertes, <span class="chiffre">68</span> terminées</p>
 
           <div class="panneau-agent">
             <span class="agent-icone">
