@@ -111,6 +111,24 @@
     return { liste: listes()[0], cle: statut, groupe: GROUPE[statut], couleur: `c-pastille-${statut.replace('-', '')}`, statut }
   }
 
+  const RANG_PRIO = { haute: 0, moyenne: 1, basse: 2, none: 3 }
+  const cleTri = (note) => [
+    RANG_PRIO[note.dataset.prio] ?? 3,
+    -Number(note.dataset.jours),
+    note.dataset.titre.toLowerCase(),
+  ]
+
+  const inserer = (groupe, note) => {
+    const liste = groupe.querySelector('.notes')
+    const cle = cleTri(note)
+    const suivante = [...liste.children].find((n) => {
+      if (n === note) return false
+      const c = cleTri(n)
+      return c[0] > cle[0] || (c[0] === cle[0] && (c[1] > cle[1] || (c[1] === cle[1] && c[2] > cle[2])))
+    })
+    liste.insertBefore(note, suivante || null)
+  }
+
   const deplacer = (note, statut, projet) => {
     const cible = conteneurPour(statut, projet)
     if (!cible.liste) return
@@ -119,7 +137,7 @@
       groupe = creerGroupe(cible.cle, cible.statut, cible.couleur, cible.groupe)
       cible.liste.appendChild(groupe)
     }
-    groupe.querySelector('.notes').appendChild(note)
+    inserer(groupe, note)
   }
 
   const recalculer = () => {
@@ -206,9 +224,7 @@
 
   const majNote = (note, donnees) => {
     Object.assign(note.dataset, donnees)
-    if (donnees.statut || donnees.projet) {
-      deplacer(note, note.dataset.statut, note.dataset.projet)
-    }
+    deplacer(note, note.dataset.statut, note.dataset.projet)
     peindreLigne(note)
     recalculer()
   }
@@ -451,11 +467,6 @@
   // ---------------------------------------------------------------- clavier et voile
   document.getElementById('ouvrir-menu')?.addEventListener('click', () => app.classList.add('menu-ouvert'))
   document.getElementById('fermer-menu')?.addEventListener('click', () => app.classList.remove('menu-ouvert'))
-  document.getElementById('nouvelle')?.addEventListener('click', () => {
-    composer?.focus()
-    document.getElementById('contenu')?.scrollTo({ top: 0, behavior: 'smooth' })
-  })
-
   voile?.addEventListener('click', () => {
     fermer()
     app.classList.remove('menu-ouvert')

@@ -168,10 +168,11 @@ svg.ic { flex: none; display: block; }
 .voile {
   display: none;
   position: fixed; inset: 0; z-index: 30;
-  border: 0; padding: 0; background: rgb(14 16 20 / 0.38);
+  border: 0; padding: 0; background: rgb(14 16 20 / 0.3);
   backdrop-filter: blur(1.5px);
   opacity: 0; pointer-events: none; transition: opacity 0.24s var(--ease);
 }
+.app.detail-ouvert .voile { display: block; opacity: 1; pointer-events: auto; }
 
 /* ---------------------------------------------------------------- côte */
 
@@ -584,18 +585,28 @@ kbd {
 
 /* ---------------------------------------------------------------- fiche */
 
-.detail { display: none; flex: none; width: var(--detail-w); min-width: 0; overflow: hidden; }
-.app.detail-ouvert .detail { display: block; animation: deplier 0.3s var(--ease) both; }
-@keyframes deplier { from { width: 0; } to { width: var(--detail-w); } }
+.detail {
+  position: fixed; top: 12px; right: 12px; bottom: 12px;
+  width: var(--detail-w); z-index: 40;
+  pointer-events: none;
+}
 .detail-boite {
-  width: calc(var(--detail-w) - 12px);
-  height: calc(100dvh - 24px);
-  margin: 12px 8px 12px 0;
+  width: 100%; height: 100%;
   background: var(--surface);
   border: 1px solid var(--filet);
   border-radius: var(--r-x);
+  box-shadow: var(--om-3);
   display: flex; flex-direction: column;
-  overflow: hidden;
+  overflow: hidden; pointer-events: auto;
+  transform: translateX(calc(100% + 24px));
+  transition: transform 0.32s var(--ease);
+}
+.app.detail-ouvert .detail-boite { transform: none; }
+
+.poignee {
+  display: none;
+  width: 38px; height: 4px; margin: 8px auto 0;
+  border-radius: 2px; background: var(--filet-fort);
 }
 
 .detail-entete {
@@ -732,22 +743,6 @@ kbd {
 
 /* ---------------------------------------------------------------- responsive */
 
-@media (max-width: 1240px) {
-  .detail { display: block; position: fixed; inset: 0; z-index: 40; width: auto; overflow: visible; pointer-events: none; }
-  .app.detail-ouvert .detail { animation: none; width: auto; }
-  .detail-boite {
-    position: absolute; top: 12px; right: 12px; bottom: 12px; margin: 0;
-    width: min(var(--detail-w), calc(100vw - 24px));
-    height: auto;
-    transform: translateX(calc(100% + 24px));
-    transition: transform 0.32s var(--ease);
-    box-shadow: var(--om-3);
-  }
-  .app.detail-ouvert .detail { width: auto; }
-  .app.detail-ouvert .detail-boite { transform: none; pointer-events: auto; }
-  .app.detail-ouvert .voile { display: block; opacity: 1; pointer-events: auto; }
-}
-
 @media (max-width: 1020px) {
   .cote {
     position: fixed; top: 0; bottom: 0; left: 0; z-index: 50;
@@ -808,7 +803,14 @@ kbd {
   .note-age { font-size: 12.5px; }
   .envoyer { display: none; }
   .note-meta { gap: 10px; font-size: 12.5px; }
-  .detail-boite { top: 0; right: 0; bottom: 0; left: 0; width: 100%; margin: 0; border-radius: 0; border: 0; }
+  .detail { top: auto; left: 0; right: 0; bottom: 0; width: 100%; }
+  .detail-boite {
+    height: 92dvh; border-radius: var(--r-x) var(--r-x) 0 0;
+    border-bottom: 0; box-shadow: 0 -20px 60px -24px rgb(20 22 26 / 0.35);
+    transform: translateY(101%);
+  }
+  .app.detail-ouvert .voile { display: block; opacity: 1; pointer-events: auto; }
+  .poignee { display: block; }
   .kit { padding: 4px 16px 8px; }
   .maquette { margin: 22px 16px 0; }
   .kit-cadre { padding: 14px; }
