@@ -1,8 +1,13 @@
-# Maquette de l'accueil de Carnet
+# Maquette de refonte de Carnet
 
-Proposition de refonte de l'accueil (dashboard) de Carnet : moins de blocs, une file de notes groupée par projet et triée par priorité dans chaque projet, la charge par projet dans un panneau séparé, thème clair / sombre / système.
+Proposition de refonte complète de l'interface de Carnet, à valider avant toute implémentation :
 
-Page statique, aucune dépendance : `index.html`, `styles.css`, polices variables auto-hébergées dans `polices/`.
-Les notes affichées sont des exemples, pas des données réelles.
+- `index.html` — accueil : cartes de statut, saisie, file de notes groupée par projet (dépliable), panneau de détail à droite.
+- `projet.html` — page projet : même kit, liste groupée par état (À faire / En cours / Terminées).
+- `composants.html` — les briques bas niveau (boutons, champs, étiquettes, cartes, en-tête de groupe, ligne de note, panneau).
+
+Thème clair, sombre et système (bascule en bas du rail, choix mémorisé). Pages statiques sans dépendance : `styles.css`, `maquette.js`, police Inter variable auto-hébergée dans `polices/`.
+
+Les notes affichées sont des exemples, pas des données réelles. URL provisoire, supprimée une fois la maquette validée.
 
 Publié sur GitHub Pages : https://codebot-ia.github.io/carnet-maquette/
