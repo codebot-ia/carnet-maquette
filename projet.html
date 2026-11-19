@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Carnet — projet Homelab (maquette)</title>
+<meta name="description" content="Maquette de refonte de Carnet, application de notes personnelle.">
+<meta name="page-type" content="software">
+<meta name="site-kind" content="software">
+<meta name="theme-color" content="#efefec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1113" media="(prefers-color-scheme: dark)">
 <script>
 (() => {
   const cle = 'carnet.apparence'
@@ -17,253 +22,294 @@
   })
 })()
 </script>
-<link rel="preload" href="./polices/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./polices/host-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+<a class="saut" href="#contenu">Aller au contenu</a>
 <div class="app" id="app">
-    <nav class="rail" aria-label="Navigation secondaire">
-      <a class="rail-marque" href="index.html" aria-label="Carnet, accueil"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4M2 10h4M2 14h4M2 18h4"/><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/></svg></a>
-      <a class="rail-bouton" href="index.html" aria-label="Accueil"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg></a>
-      <a class="rail-bouton" href="projet.html" aria-label="Projet ouvert" aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h3.6l1.8 2H18a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></a>
-      <a class="rail-bouton" href="composants.html" aria-label="Kit de composants"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><path d="M17 13.5v7M13.5 17h7"/></svg></a>
-      <div class="rail-pied">
-        <button type="button" class="rail-bouton" id="apparence" aria-label="Apparence : système"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg></button>
-        <a class="rail-bouton" href="#" aria-label="Réglages"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.5-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 3.9a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.9 1.4l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 11a2 2 0 1 1 0 4z"/></svg></a>
+    <aside class="cote" id="cote" aria-label="Navigation">
+      <div class="cote-tete">
+        <a class="marque" href="index.html"><span class="marque-carre"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4M2 10h4M2 14h4M2 18h4"/><path d="M21.4 5.6a1 1 0 1 0-3-3l-5 5a2 2 0 0 0-.5.9l-.9 2.9a.5.5 0 0 0 .6.6l2.9-.8a2 2 0 0 0 .9-.5z"/></svg></span><span class="marque-nom">Carnet</span></a>
+        <button type="button" class="bouton-icone fermer-cote" id="fermer-menu" aria-label="Fermer le menu"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
-    </nav>
-    <aside class="side" id="side" aria-label="Navigation">
-      <div class="side-tete">
-        <p class="side-titre">Carnet</p>
-        <p class="side-sous"><span class="chiffre">17</span> notes à faire</p>
-      </div>
-      <nav class="side-nav" aria-label="Navigation principale">
-        <a class="lien" href="index.html"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg>Accueil</a>
-        <a class="lien" href="composants.html"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><path d="M17 13.5v7M13.5 17h7"/></svg>Composants</a>
-        <div class="section-titre"><span>Projets</span><button type="button" class="bouton-icone petit" aria-label="Nouveau projet"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
-        <ul class="notes" style="list-style:none;margin:0;padding:0">
-          <li><a class="lien" href="projet.html" aria-current="page"><span class="pastille c-slate"></span><span class="coupe">Homelab</span><span class="compte">5</span></a></li>
-          <li><a class="lien" href="projet.html"><span class="pastille c-clay"></span><span class="coupe">Carnet</span><span class="compte">5</span></a></li>
-          <li><a class="lien" href="projet.html"><span class="pastille c-moss"></span><span class="coupe">MonSuiviOrdo</span><span class="compte">3</span></a></li>
-          <li><a class="lien" href="projet.html"><span class="pastille c-ochre"></span><span class="coupe">Promos U</span><span class="compte">2</span></a></li>
-          <li><a class="lien" href="projet.html"><span class="pastille c-stone"></span><span class="coupe">Maison</span><span class="compte">2</span></a></li>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="lien" href="index.html" data-nav="accueil"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></svg><span class="coupe">Accueil</span><span class="lien-compte">17</span></a>
+        <a class="lien" href="composants.html" data-nav="composants"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><path d="M17 13.5v7M13.5 17h7"/></svg><span class="coupe">Composants</span></a>
+        <div class="nav-titre"><span>Projets</span><button type="button" class="bouton-icone petit" aria-label="Nouveau projet"><svg class="ic " viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div>
+        <ul class="projets">
+        <li><a class="lien" href="projet.html" data-projet="Homelab" aria-current="page"><span class="pastille c-ardoise"></span><span class="coupe">Homelab</span><span class="lien-compte">5</span></a></li>
+        <li><a class="lien" href="projet.html" data-projet="Carnet"><span class="pastille c-terre"></span><span class="coupe">Carnet</span><span class="lien-compte">5</span></a></li>
+        <li><a class="lien" href="projet.html" data-projet="MonSuiviOrdo"><span class="pastille c-mousse"></span><span class="coupe">MonSuiviOrdo</span><span class="lien-compte">3</span></a></li>
+        <li><a class="lien" href="projet.html" data-projet="Promos U"><span class="pastille c-ocre"></span><span class="coupe">Promos U</span><span class="lien-compte">2</span></a></li>
+        <li><a class="lien" href="projet.html" data-projet="Maison"><span class="pastille c-pierre"></span><span class="coupe">Maison</span><span class="lien-compte">2</span></a></li>
         </ul>
       </nav>
-      <div class="side-pied">
+      <div class="cote-pied">
+        <button type="button" class="lien bouton-lien" id="apparence" aria-label="Apparence : système"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg><span class="coupe" id="apparence-nom">Système</span></button>
+        <a class="lien" href="#"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.5-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 3.9a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.9 1.4l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 11a2 2 0 1 1 0 4z"/></svg><span class="coupe">Réglages</span></a>
         <div class="utilisateur">
           <span class="avatar" aria-hidden="true">J</span>
-          <span class="coupe">jordan</span>
-          <button type="button" class="bouton-icone petit" aria-label="Se déconnecter" style="margin-left:auto"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/></svg></button>
+          <span class="utilisateur-nom">jordan</span>
+          <button type="button" class="bouton-icone petit" aria-label="Se déconnecter" style="margin-left:auto"><svg class="ic " viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6"/></svg></button>
         </div>
       </div>
     </aside>
-    <div class="vue">
-      <div class="vue-defillement">
-        <header class="vue-tete">
-          <div>
-            <p class="fil"><a href="index.html">Projets</a> /</p>
-            <h1 class="vue-titre"><span class="pastille c-slate" style="width:11px;height:11px"></span>Homelab</h1>
-            <p class="vue-sous"><span class="chiffre">5</span> à faire, <span class="chiffre">1</span> en cours</p>
-          </div>
-          <div class="vue-actions">
-            <button type="button" class="bouton-icone burger" id="ouvrir-menu" aria-label="Ouvrir les projets"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-            <label class="recherche"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><input type="search" placeholder="Rechercher dans le projet" aria-label="Rechercher dans le projet"></label>
-            <button type="button" class="bouton"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg> Envoyer à l'agent</button>
-            <button type="button" class="bouton-icone" aria-label="Réglages du projet"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.5-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 3.9a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.9 1.4l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 11a2 2 0 1 1 0 4z"/></svg></button>
-          </div>
-        </header>
-
-        <div class="cartes">
-        <button type="button" class="carte c-nouvelle" aria-pressed="true" data-filtre="nouvelle">
-          <span class="carte-libelle">À faire</span>
-          <span class="carte-nombre">5</span>
-          <span class="carte-note">la plus ancienne : 9 j</span>
-        </button>
-        <button type="button" class="carte c-encours" aria-pressed="false" data-filtre="en-cours">
-          <span class="carte-libelle">En cours</span>
-          <span class="carte-nombre">1</span>
-          <span class="carte-note">chez l’agent</span>
-        </button>
-        <button type="button" class="carte c-faite" aria-pressed="false" data-filtre="faite">
-          <span class="carte-libelle">Terminées</span>
-          <span class="carte-nombre">3</span>
-          <span class="carte-note">sur les 30 derniers jours</span>
-        </button>
+  <button type="button" class="voile" id="voile" aria-label="Fermer le panneau" tabindex="-1"></button>
+  <main class="zone" id="contenu">
+    <div class="feuille">
+      <header class="entete">
+        <button type="button" class="bouton-icone burger" id="ouvrir-menu" aria-label="Ouvrir les projets"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="entete-txt">
+          <p class="fil"><a href="index.html">Projets</a><span aria-hidden="true">/</span></p>
+          <h1><span class="pastille c-ardoise titre-pastille"></span>Homelab</h1>
+          <p class="entete-sous"><span class="chiffre" data-total-ouvertes>5</span> à faire, <span class="chiffre" data-total-encours>1</span> en cours</p>
         </div>
-
-      <form class="saisie" id="saisie">
-        <div class="saisie-ligne">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          <textarea id="note" rows="1" placeholder="Noter une idée" aria-label="Nouvelle note"></textarea>
+        <div class="entete-actions">
+          <label class="recherche"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><input type="search" id="filtre" placeholder="Rechercher dans le projet" aria-label="Rechercher dans le projet"><kbd>⌘K</kbd></label>
+          <button type="button" class="bouton" id="nouvelle"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nouvelle note</button>
         </div>
-        <div class="saisie-barre">
-          <select class="choix" aria-label="Projet">
-            <option selected>Homelab</option>
-          </select>
-          <select class="choix" aria-label="Priorité">
-            <option>Sans priorité</option>
-            <option>Basse</option>
-            <option>Moyenne</option>
-            <option>Haute</option>
-          </select>
-          <button type="button" class="bouton discret petit"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-7.6 7.6a4.5 4.5 0 0 1-6.4-6.4l7.7-7.6a3 3 0 0 1 4.3 4.3l-7.7 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></svg> <span class="t-joindre">Joindre</span></button>
-          <button type="submit" class="bouton principal petit pousse">Enregistrer</button>
-        </div>
-      </form>
+      </header>
 
-        <section class="file" aria-labelledby="titre-file">
-          <div class="file-tete">
-            <h2 class="file-titre" id="titre-file">Dans ce projet</h2>
-            <p class="file-tri">priorité haute d'abord, puis la plus ancienne</p>
+      <div class="cartes">
+          <button type="button" class="carte carte-nouvelle" data-filtre="nouvelle" aria-pressed="false">
+            <span class="carte-icone"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg></span>
+            <span class="carte-txt"><span class="carte-nombre">5</span><span class="carte-libelle">À faire</span></span>
+            <span class="carte-note">plus ancienne : il y a 9 j</span>
+          </button>
+          <button type="button" class="carte carte-en-cours" data-filtre="en-cours" aria-pressed="false">
+            <span class="carte-icone"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></span>
+            <span class="carte-txt"><span class="carte-nombre">1</span><span class="carte-libelle">En cours</span></span>
+            <span class="carte-note">chez l’agent</span>
+          </button>
+          <button type="button" class="carte carte-faite" data-filtre="faite" aria-pressed="false">
+            <span class="carte-icone"><svg class="ic " viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" stroke="none"/><path d="M8 12.3l2.6 2.6 5.4-5.3" stroke="var(--surface)" stroke-width="2.1"/></svg></span>
+            <span class="carte-txt"><span class="carte-nombre">3</span><span class="carte-libelle">Terminées</span></span>
+            <span class="carte-note">sur les 30 derniers jours</span>
+          </button>
+      </div>
+
+        <form class="ajout" id="ajout">
+          <div class="ajout-ligne">
+            <svg class="ic ajout-plus" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            <textarea id="note" rows="1" placeholder="Noter une idée…" aria-label="Nouvelle note"></textarea>
           </div>
-          <div class="notes" style="border-top:1px solid var(--filet)">
-      <section class="groupe" data-statut="nouvelle">
-        <button type="button" class="groupe-tete" aria-expanded="true">
-          <svg class="chevron" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg><span class="pastille p-nouvelle"></span>À faire<span class="compte">5</span>
-          <span class="groupe-age">plus ancienne : il y a 9 j</span>
-        </button>
-        <ul class="notes">
-        <li class="note" data-statut="nouvelle" data-titre="Sauvegarde des photos : tester restic sur le NAS" data-projet="À faire" data-couleur="p-nouvelle" data-prio="Haute" data-age="il y a 9 j" data-piece="1" data-envoyee="" data-corps="Le rsync nocturne passe, mais je n'ai pas de version antérieure.
+          <div class="ajout-barre">
+            <select class="choix" id="ajout-projet" aria-label="Projet">
+              <option selected>Homelab</option>
+            </select>
+            <select class="choix" id="ajout-prio" aria-label="Priorité">
+              <option value="none">Sans priorité</option>
+              <option value="basse">Basse</option>
+              <option value="moyenne">Moyenne</option>
+              <option value="haute">Haute</option>
+            </select>
+            <button type="button" class="bouton discret petit"><svg class="ic " viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-7.6 7.6a4.5 4.5 0 0 1-6.4-6.4l7.7-7.6a3 3 0 0 1 4.3 4.3l-7.7 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></svg>Joindre</button>
+            <span class="raccourci"><kbd>Ctrl</kbd><kbd>↵</kbd></span>
+            <button type="submit" class="bouton principal petit pousse">Ajouter</button>
+          </div>
+        </form>
+
+      <section class="file" aria-labelledby="titre-file">
+        <div class="file-tete">
+          <h2 class="file-titre" id="titre-file">Dans ce projet</h2>
+          <p class="file-tri">priorité haute d’abord, puis la plus ancienne</p>
+        </div>
+        <div class="notes-liste">
+        <section class="groupe" data-cle="nouvelle" data-statut="nouvelle">
+          <button type="button" class="groupe-tete" aria-expanded="true">
+            <svg class="ic chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6" stroke-width="2.2"/></svg>
+            <span class="pastille c-pastille-nouvelle"></span>
+            <span class="groupe-nom">À faire</span>
+            <span class="groupe-compte">5</span>
+            <span class="groupe-age">plus ancienne : il y a 9 j</span>
+          </button>
+          <ul class="notes">
+            <li class="note" data-cle="n1" data-avec-projet="0" data-statut="nouvelle" data-titre="Sauvegarde des photos : tester restic sur le NAS" data-projet="Homelab" data-couleur="c-ardoise" data-prio="haute" data-jours="9" data-piece="1" data-envoyee="" data-corps="Le rsync nocturne passe, mais je n'ai pas de version antérieure.
 Tester restic en local sur un dossier de 20 Go avant de le mettre sur le NAS, puis vérifier une restauration complète (pas juste un `check`).">
-          <button type="button" class="etat" aria-label="Changer l'état de « Sauvegarde des photos : tester restic sur le NAS »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Sauvegarde des photos : tester restic sur le NAS</span>
-            <span class="note-meta"><span class="prio prio-haute"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 3.5L16 12H5"/></svg>Haute</span><span class="piece"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-7.6 7.6a4.5 4.5 0 0 1-6.4-6.4l7.7-7.6a3 3 0 0 1 4.3 4.3l-7.7 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></svg>1</span></span>
-          </a>
-          <span class="note-age">il y a 9 j</span>
-        <button type="button" class="envoyer" aria-label="Envoyer « Sauvegarde des photos : tester restic sur le NAS » à l'agent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg></button>
-        </li>
-        <li class="note" data-statut="nouvelle" data-titre="Le reverse proxy perd le certificat après un redémarrage" data-projet="À faire" data-couleur="p-nouvelle" data-prio="Haute" data-age="il y a 7 j" data-piece="0" data-envoyee="" data-corps="Après chaque redémarrage du conteneur Caddy, le certificat du domaine maison repart en auto-signé.
+              <button type="button" class="etat etat-nouvelle" aria-label="Changer l’état de « Sauvegarde des photos : tester restic sur le NAS »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Sauvegarde des photos : tester restic sur le NAS</span>
+                <span class="note-meta"><span class="meta-prio prio-haute"><span class="point"></span>Haute</span><span class="meta-piece"><svg class="ic " viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-7.6 7.6a4.5 4.5 0 0 1-6.4-6.4l7.7-7.6a3 3 0 0 1 4.3 4.3l-7.7 7.6a1.5 1.5 0 0 1-2.1-2.1l7-7"/></svg>1</span></span>
+              </a>
+              <span class="note-age">il y a 9 j</span>
+              <button type="button" class="envoyer" aria-label="Envoyer « Sauvegarde des photos : tester restic sur le NAS » à l’agent" title="Envoyer à l’agent"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg></button>
+            </li>
+            <li class="note" data-cle="n2" data-avec-projet="0" data-statut="nouvelle" data-titre="Le reverse proxy perd le certificat après un redémarrage" data-projet="Homelab" data-couleur="c-ardoise" data-prio="haute" data-jours="7" data-piece="0" data-envoyee="" data-corps="Après chaque redémarrage du conteneur Caddy, le certificat du domaine maison repart en auto-signé.
 Le volume est bien monté, mais l'ACME semble réessayer avant que le DNS soit prêt. Ajouter une temporisation ou un healthcheck avant le renouvellement.">
-          <button type="button" class="etat" aria-label="Changer l'état de « Le reverse proxy perd le certificat après un redémarrage »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Le reverse proxy perd le certificat après un redémarrage</span>
-            <span class="note-meta"><span class="prio prio-haute"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 3.5L16 12H5"/></svg>Haute</span></span>
-          </a>
-          <span class="note-age">il y a 7 j</span>
-        <button type="button" class="envoyer" aria-label="Envoyer « Le reverse proxy perd le certificat après un redémarrage » à l'agent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg></button>
-        </li>
-        <li class="note" data-statut="nouvelle" data-titre="Widget Glance pour la température du boîtier" data-projet="À faire" data-couleur="p-nouvelle" data-prio="Moyenne" data-age="il y a 3 j" data-piece="0" data-envoyee="" data-corps="Deux sondes (CPU, boîtier). Un widget custom-api avec un graphe sur 24 h suffirait.">
-          <button type="button" class="etat" aria-label="Changer l'état de « Widget Glance pour la température du boîtier »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Widget Glance pour la température du boîtier</span>
-            <span class="note-meta"><span class="prio prio-moyenne"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 3.5L16 12H5"/></svg>Moyenne</span></span>
-          </a>
-          <span class="note-age">il y a 3 j</span>
-        <button type="button" class="envoyer" aria-label="Envoyer « Widget Glance pour la température du boîtier » à l'agent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg></button>
-        </li>
-        <li class="note" data-statut="nouvelle" data-titre="Déplacer les données de Node-RED sur le second disque" data-projet="À faire" data-couleur="p-nouvelle" data-prio="Basse" data-age="il y a 5 j" data-piece="0" data-envoyee="" data-corps="Le volume de données est encore sur le SSD système. Le déplacer et mettre à jour le compose.">
-          <button type="button" class="etat" aria-label="Changer l'état de « Déplacer les données de Node-RED sur le second disque »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Déplacer les données de Node-RED sur le second disque</span>
-            <span class="note-meta"><span class="prio prio-basse"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 3.5L16 12H5"/></svg>Basse</span></span>
-          </a>
-          <span class="note-age">il y a 5 j</span>
-        <button type="button" class="envoyer" aria-label="Envoyer « Déplacer les données de Node-RED sur le second disque » à l'agent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg></button>
-        </li>
-        <li class="note" data-statut="nouvelle" data-titre="Changer la pile du capteur de température de la cave" data-projet="À faire" data-couleur="p-nouvelle" data-prio="Sans priorité" data-age="il y a 2 j" data-piece="0" data-envoyee="" data-corps="La sonde ne remonte plus depuis une semaine. Pile CR2032 à changer, puis réappairer.">
-          <button type="button" class="etat" aria-label="Changer l'état de « Changer la pile du capteur de température de la cave »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Changer la pile du capteur de température de la cave</span>
-            <span class="note-meta"><span class="prio prio-none"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 3.5L16 12H5"/></svg>Sans priorité</span></span>
-          </a>
-          <span class="note-age">il y a 2 j</span>
-        <button type="button" class="envoyer" aria-label="Envoyer « Changer la pile du capteur de température de la cave » à l'agent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg></button>
-        </li>
-        </ul>
-      </section>
-      <section class="groupe" data-statut="en-cours">
-        <button type="button" class="groupe-tete" aria-expanded="true">
-          <svg class="chevron" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg><span class="pastille p-encours"></span>En cours<span class="compte">1</span>
-          <span class="groupe-age">plus ancienne : il y a 5 j</span>
-        </button>
-        <ul class="notes">
-        <li class="note" data-statut="en-cours" data-titre="Jellyfin 12 : les widgets demandent la nouvelle authentification" data-projet="En cours" data-couleur="p-encours" data-prio="Haute" data-age="il y a 5 j" data-piece="0" data-envoyee="4" data-corps="Le serveur est passé en 12.x, les widgets Glance renvoient 401.
-Nouvelle authentification par clé d'API à poser dans les variables d'environnement du widget.">
-          <button type="button" class="etat" aria-label="Changer l'état de « Jellyfin 12 : les widgets demandent la nouvelle authentification »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><path d="M12 4.5a7.5 7.5 0 0 1 0 15z" fill="currentColor" stroke="none"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Jellyfin 12 : les widgets demandent la nouvelle authentification</span>
-            <span class="note-meta"><span class="prio prio-haute"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 5h11l-1.6 3.5L16 12H5"/></svg>Haute</span><span class="envoyee"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M12 8V5M9 13h6"/></svg>Chez l'agent</span></span>
-          </a>
-          <span class="note-age">il y a 5 j</span>
-        <button type="button" class="envoyer" aria-label="Envoyer « Jellyfin 12 : les widgets demandent la nouvelle authentification » à l'agent"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg></button>
-        </li>
-        </ul>
-      </section>
-      <section class="groupe" data-statut="faite">
-        <button type="button" class="groupe-tete" aria-expanded="true">
-          <svg class="chevron" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg><span class="pastille p-faite"></span>Terminées<span class="compte">3</span>
-          <span class="groupe-age">plus ancienne : il y a 6 j</span>
-        </button>
-        <ul class="notes">
-        <li class="note" data-statut="faite" data-titre="Passer Jellyfin en 12.0.1" data-projet="Terminées" data-couleur="p-faite" data-prio="Sans priorité" data-age="il y a 3 j" data-piece="0" data-envoyee="" data-corps="">
-          <button type="button" class="etat" aria-label="Changer l'état de « Passer Jellyfin en 12.0.1 »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Passer Jellyfin en 12.0.1</span>
-            <span class="note-meta"></span>
-          </a>
-          <span class="note-age">il y a 3 j</span>
-        </li>
-        <li class="note" data-statut="faite" data-titre="Réduire le bruit du ventilateur du switch" data-projet="Terminées" data-couleur="p-faite" data-prio="Sans priorité" data-age="il y a 4 j" data-piece="0" data-envoyee="" data-corps="">
-          <button type="button" class="etat" aria-label="Changer l'état de « Réduire le bruit du ventilateur du switch »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Réduire le bruit du ventilateur du switch</span>
-            <span class="note-meta"></span>
-          </a>
-          <span class="note-age">il y a 4 j</span>
-        </li>
-        <li class="note" data-statut="faite" data-titre="Widget Glance : compteur de conteneurs arrêtés" data-projet="Terminées" data-couleur="p-faite" data-prio="Sans priorité" data-age="il y a 6 j" data-piece="0" data-envoyee="" data-corps="">
-          <button type="button" class="etat" aria-label="Changer l'état de « Widget Glance : compteur de conteneurs arrêtés »"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></button>
-          <a class="note-lien" href="#detail">
-            <span class="note-titre">Widget Glance : compteur de conteneurs arrêtés</span>
-            <span class="note-meta"></span>
-          </a>
-          <span class="note-age">il y a 6 j</span>
-        </li>
-        </ul>
-      </section>
-          </div>
-          <div class="file-pied"><span><span class="chiffre">6</span> notes ouvertes</span><span>Même liste que l'accueil, regroupée par état</span></div>
-        </section>
-
-        <p class="maquette">Maquette de refonte — données d'exemple, aucune note réelle.</p>
-      </div>
-    </div>
-
-    <aside class="detail" id="detail" aria-labelledby="detail-titre">
-      <div class="detail-tete">
-        <span class="etiquette nouvelle" id="detail-statut">À faire</span>
-        <span class="age" id="detail-age">il y a 9 j</span>
-        <button type="button" class="bouton-icone petit" id="detail-fermer" aria-label="Fermer le détail" style="margin-left:auto"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      </div>
-      <div class="detail-corps">
-        <h2 class="detail-titre" id="detail-titre">Sauvegarde des photos : tester restic sur le NAS</h2>
-        <dl class="fiche">
-          <div class="fiche-ligne"><dt class="fiche-cle">Projet</dt><dd class="fiche-val" id="detail-projet"><span class="pastille c-slate"></span> Homelab</dd></div>
-          <div class="fiche-ligne"><dt class="fiche-cle">Priorité</dt><dd class="fiche-val prio-haute" id="detail-prio">Haute</dd></div>
-          <div class="fiche-ligne"><dt class="fiche-cle">Créée</dt><dd class="fiche-val" id="detail-creee">il y a 9 j</dd></div>
-          <div class="fiche-ligne"><dt class="fiche-cle">Agent</dt><dd class="fiche-val" id="detail-agent">pas encore envoyée</dd></div>
-        </dl>
-        <section class="detail-section">
-          <h3 class="detail-sous">Note</h3>
-          <p class="detail-texte" id="detail-corps">Le rsync nocturne passe, mais je n'ai pas de version antérieure.
-Tester restic en local sur un dossier de 20 Go avant de le mettre sur le NAS, puis vérifier une restauration complète (pas juste un `check`).</p>
-        </section>
-        <section class="detail-section" id="detail-pieces">
-          <h3 class="detail-sous">Pièce jointe</h3>
-          <ul class="pieces">
-            <li><a class="piece-ligne" href="#"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg> capture-nas.png <span class="taille">214 Ko</span></a></li>
+              <button type="button" class="etat etat-nouvelle" aria-label="Changer l’état de « Le reverse proxy perd le certificat après un redémarrage »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Le reverse proxy perd le certificat après un redémarrage</span>
+                <span class="note-meta"><span class="meta-prio prio-haute"><span class="point"></span>Haute</span></span>
+              </a>
+              <span class="note-age">il y a 7 j</span>
+              <button type="button" class="envoyer" aria-label="Envoyer « Le reverse proxy perd le certificat après un redémarrage » à l’agent" title="Envoyer à l’agent"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg></button>
+            </li>
+            <li class="note" data-cle="n3" data-avec-projet="0" data-statut="nouvelle" data-titre="Widget Glance pour la température du boîtier" data-projet="Homelab" data-couleur="c-ardoise" data-prio="moyenne" data-jours="3" data-piece="0" data-envoyee="" data-corps="Deux sondes (CPU, boîtier). Un widget custom-api avec un graphe sur 24 h suffirait.">
+              <button type="button" class="etat etat-nouvelle" aria-label="Changer l’état de « Widget Glance pour la température du boîtier »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Widget Glance pour la température du boîtier</span>
+                <span class="note-meta"><span class="meta-prio prio-moyenne"><span class="point"></span>Moyenne</span></span>
+              </a>
+              <span class="note-age">il y a 3 j</span>
+              <button type="button" class="envoyer" aria-label="Envoyer « Widget Glance pour la température du boîtier » à l’agent" title="Envoyer à l’agent"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg></button>
+            </li>
+            <li class="note" data-cle="n4" data-avec-projet="0" data-statut="nouvelle" data-titre="Déplacer les données de Node-RED sur le second disque" data-projet="Homelab" data-couleur="c-ardoise" data-prio="basse" data-jours="5" data-piece="0" data-envoyee="" data-corps="Le volume de données est encore sur le SSD système. Le déplacer et mettre à jour le compose.">
+              <button type="button" class="etat etat-nouvelle" aria-label="Changer l’état de « Déplacer les données de Node-RED sur le second disque »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Déplacer les données de Node-RED sur le second disque</span>
+                <span class="note-meta"><span class="meta-prio prio-basse"><span class="point"></span>Basse</span></span>
+              </a>
+              <span class="note-age">il y a 5 j</span>
+              <button type="button" class="envoyer" aria-label="Envoyer « Déplacer les données de Node-RED sur le second disque » à l’agent" title="Envoyer à l’agent"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg></button>
+            </li>
+            <li class="note" data-cle="n5" data-avec-projet="0" data-statut="nouvelle" data-titre="Changer la pile du capteur de température de la cave" data-projet="Homelab" data-couleur="c-ardoise" data-prio="none" data-jours="2" data-piece="0" data-envoyee="" data-corps="La sonde ne remonte plus depuis une semaine. Pile CR2032 à changer, puis réappairer.">
+              <button type="button" class="etat etat-nouvelle" aria-label="Changer l’état de « Changer la pile du capteur de température de la cave »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Changer la pile du capteur de température de la cave</span>
+                <span class="note-meta"></span>
+              </a>
+              <span class="note-age">il y a 2 j</span>
+              <button type="button" class="envoyer" aria-label="Envoyer « Changer la pile du capteur de température de la cave » à l’agent" title="Envoyer à l’agent"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg></button>
+            </li>
           </ul>
         </section>
-      </div>
-      <div class="detail-pied">
-        <button type="button" class="bouton principal"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12L20 4.5 15.5 20 12 13.5z"/></svg> Envoyer à l'agent</button>
-        <button type="button" class="bouton"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg> Terminer</button>
-        <button type="button" class="bouton-icone" aria-label="Supprimer la note"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></svg></button>
+        <section class="groupe" data-cle="en-cours" data-statut="en-cours">
+          <button type="button" class="groupe-tete" aria-expanded="true">
+            <svg class="ic chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6" stroke-width="2.2"/></svg>
+            <span class="pastille c-pastille-encours"></span>
+            <span class="groupe-nom">En cours</span>
+            <span class="groupe-compte">1</span>
+            <span class="groupe-age">plus ancienne : il y a 5 j</span>
+          </button>
+          <ul class="notes">
+            <li class="note" data-cle="n18" data-avec-projet="0" data-statut="en-cours" data-titre="Jellyfin 12 : les widgets demandent la nouvelle authentification" data-projet="Homelab" data-couleur="c-ardoise" data-prio="haute" data-jours="5" data-piece="0" data-envoyee="4" data-corps="Le serveur est passé en 12.x, les widgets Glance renvoient 401.
+Nouvelle authentification par clé d'API à poser dans les variables d'environnement du widget.">
+              <button type="button" class="etat etat-en-cours" aria-label="Changer l’état de « Jellyfin 12 : les widgets demandent la nouvelle authentification »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Jellyfin 12 : les widgets demandent la nouvelle authentification</span>
+                <span class="note-meta"><span class="meta-prio prio-haute"><span class="point"></span>Haute</span><span class="meta-agent"><svg class="ic " viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5M9 13.5h6"/></svg>Chez l’agent</span></span>
+              </a>
+              <span class="note-age">il y a 5 j</span>
+              <button type="button" class="envoyer" aria-label="Envoyer « Jellyfin 12 : les widgets demandent la nouvelle authentification » à l’agent" title="Envoyer à l’agent"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg></button>
+            </li>
+          </ul>
+        </section>
+        <section class="groupe" data-cle="faite" data-statut="faite">
+          <button type="button" class="groupe-tete" aria-expanded="true">
+            <svg class="ic chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6" stroke-width="2.2"/></svg>
+            <span class="pastille c-pastille-faite"></span>
+            <span class="groupe-nom">Terminées</span>
+            <span class="groupe-compte">3</span>
+            <span class="groupe-age">plus ancienne : il y a 6 j</span>
+          </button>
+          <ul class="notes">
+            <li class="note" data-cle="n25" data-avec-projet="0" data-statut="faite" data-titre="Passer Jellyfin en 12.0.1" data-projet="Homelab" data-couleur="c-ardoise" data-prio="none" data-jours="3" data-piece="0" data-envoyee="" data-corps="">
+              <button type="button" class="etat etat-faite" aria-label="Changer l’état de « Passer Jellyfin en 12.0.1 »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" stroke="none"/><path d="M8 12.3l2.6 2.6 5.4-5.3" stroke="var(--surface)" stroke-width="2.1"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Passer Jellyfin en 12.0.1</span>
+                <span class="note-meta"></span>
+              </a>
+              <span class="note-age">il y a 3 j</span>
+              
+            </li>
+            <li class="note" data-cle="n26" data-avec-projet="0" data-statut="faite" data-titre="Réduire le bruit du ventilateur du switch" data-projet="Homelab" data-couleur="c-ardoise" data-prio="none" data-jours="4" data-piece="0" data-envoyee="" data-corps="">
+              <button type="button" class="etat etat-faite" aria-label="Changer l’état de « Réduire le bruit du ventilateur du switch »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" stroke="none"/><path d="M8 12.3l2.6 2.6 5.4-5.3" stroke="var(--surface)" stroke-width="2.1"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Réduire le bruit du ventilateur du switch</span>
+                <span class="note-meta"></span>
+              </a>
+              <span class="note-age">il y a 4 j</span>
+              
+            </li>
+            <li class="note" data-cle="n27" data-avec-projet="0" data-statut="faite" data-titre="Widget Glance : compteur de conteneurs arrêtés" data-projet="Homelab" data-couleur="c-ardoise" data-prio="none" data-jours="6" data-piece="0" data-envoyee="" data-corps="">
+              <button type="button" class="etat etat-faite" aria-label="Changer l’état de « Widget Glance : compteur de conteneurs arrêtés »" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" stroke="none"/><path d="M8 12.3l2.6 2.6 5.4-5.3" stroke="var(--surface)" stroke-width="2.1"/></svg></button>
+              <a class="note-lien" href="#fiche">
+                <span class="note-titre">Widget Glance : compteur de conteneurs arrêtés</span>
+                <span class="note-meta"></span>
+              </a>
+              <span class="note-age">il y a 6 j</span>
+              
+            </li>
+          </ul>
+        </section>
+        </div>
+        <p class="file-vide" id="file-vide" hidden>Aucune note ne correspond à cette recherche.</p>
+      </section>
+
+      <p class="maquette">Maquette de refonte — données d’exemple, aucune note réelle.</p>
+    </div>
+  </main>
+    <aside class="detail" id="detail" aria-hidden="true">
+      <div class="detail-boite">
+        <div class="detail-entete">
+          <p class="detail-repere"><span id="detail-projet-repere">Homelab</span> · <span id="detail-age">il y a 9 j</span></p>
+          <span class="sauve" id="sauve" aria-live="polite"></span>
+          <button type="button" class="bouton-icone" id="detail-fermer" aria-label="Fermer la fiche"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+        <div class="detail-corps">
+          <div class="segments" id="detail-etats" role="group" aria-label="État de la note">
+            <button type="button" data-statut="nouvelle" aria-pressed="true"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/></svg><span>À faire</span></button>
+            <button type="button" data-statut="en-cours" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg><span>En cours</span></button>
+            <button type="button" data-statut="faite" aria-pressed="false"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" stroke="none"/><path d="M8 12.3l2.6 2.6 5.4-5.3" stroke="var(--surface)" stroke-width="2.1"/></svg><span>Terminée</span></button>
+          </div>
+
+          <label class="sr-only" for="detail-titre">Titre de la note</label>
+          <textarea class="titre-champ" id="detail-titre" rows="1" aria-label="Titre de la note"></textarea>
+          <p class="detail-aide">Titre, note et priorité se modifient ici. L’enregistrement est automatique.</p>
+
+          <div class="champs">
+            <div class="champ">
+              <label class="champ-cle" for="detail-projet">Projet</label>
+              <select class="choix large" id="detail-projet">
+                <option value="Homelab">Homelab</option>
+                <option value="Carnet">Carnet</option>
+                <option value="MonSuiviOrdo">MonSuiviOrdo</option>
+                <option value="Promos U">Promos U</option>
+                <option value="Maison">Maison</option>
+              </select>
+            </div>
+            <div class="champ">
+              <span class="champ-cle" id="etiquette-prio">Priorité</span>
+              <div class="segments segments-prio" id="detail-prios" role="group" aria-labelledby="etiquette-prio">
+                <button type="button" data-prio="none" aria-pressed="true">Aucune</button>
+                <button type="button" data-prio="basse" aria-pressed="false">Basse</button>
+                <button type="button" data-prio="moyenne" aria-pressed="false">Moyenne</button>
+                <button type="button" data-prio="haute" aria-pressed="false">Haute</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="champ">
+            <label class="champ-cle" for="detail-corps">Note</label>
+            <textarea class="corps-champ" id="detail-corps" rows="7" placeholder="Écrire ici…"></textarea>
+          </div>
+
+          <div class="champ" id="detail-pieces">
+            <span class="champ-cle">Pièces jointes</span>
+            <a class="piece-ligne" href="#"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span class="piece-nom">capture-nas.png</span><span class="piece-taille">214 Ko</span></a>
+          </div>
+
+          <p class="detail-agent" id="detail-agent"><svg class="ic " viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5M9 13.5h6"/></svg><span>Pas encore envoyée à l’agent</span></p>
+        </div>
+        <div class="detail-pied">
+          <button type="button" class="bouton principal"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 20 4.5 15.5 20 12 13.5z"/></svg>Envoyer à l’agent</button>
+          <button type="button" class="bouton"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" stroke="none"/><path d="M8 12.3l2.6 2.6 5.4-5.3" stroke="var(--surface)" stroke-width="2.1"/></svg>Terminer</button>
+          <button type="button" class="bouton-icone danger" aria-label="Supprimer la note"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></svg></button>
+        </div>
       </div>
     </aside>
-    <div class="voile" id="voile"></div>
 </div>
+    <template id="modele-groupe">
+      <section class="groupe" data-cle="" data-statut="nouvelle">
+        <button type="button" class="groupe-tete" aria-expanded="true">
+          <svg class="ic chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg>
+          <span class="pastille"></span><span class="groupe-nom"></span><span class="groupe-compte"></span>
+          <span class="groupe-age"></span>
+        </button>
+        <ul class="notes"></ul>
+      </section>
+    </template>
 <script src="./maquette.js"></script>
 </body>
 </html>
