@@ -142,6 +142,7 @@
     overflow: hidden;
 
     --attenue: 1;
+    --pic-froid: 0.95;
 
     & .voile {
       position: absolute; inset: 0; z-index: 3;
@@ -152,7 +153,7 @@
     }
   }
 
-  :root[data-theme='sombre'] .nappes { --attenue: 0.9 }
+  :root[data-theme='sombre'] .nappes { --attenue: 0.85; --pic-froid: 0.6 }
 
   :root[data-theme='sombre'] .voile {
     background: linear-gradient(
@@ -164,8 +165,8 @@
   .nappe {
     position: absolute; inset: -25% -12%; z-index: 1;
 
-    &.nappe-froide { animation: bascule-froide 89s ease-in-out infinite alternate }
-    &.nappe-chaude { animation: bascule-chaude 67s ease-in-out infinite alternate }
+    &.nappe-froide { animation: bascule-froide 63s ease-in-out infinite alternate }
+    &.nappe-chaude { animation: bascule-chaude 49s ease-in-out infinite alternate }
   }
 
   .nuage {
@@ -224,7 +225,7 @@
     to { transform: translate3d(0, var(--amp-y), 0) }
   }
   @keyframes bascule-froide {
-    from { opacity: 0.95 }
+    from { opacity: var(--pic-froid) }
     to { opacity: 0.48 }
   }
   @keyframes bascule-chaude {
@@ -365,16 +366,16 @@
     <div class="composer" id="composer">
       <div class="nappes" aria-hidden="true">
         <div class="nappe nappe-froide">
-          <span class="nuage" style="--x:4%;  --y:6%;   --l:58%; --h:200%; --c:var(--accent);  --o:.52; --dx:47s;  --dy:31s; --rx:-9s; --ry:-4s;  --amp-x:12%;  --amp-y:23%; --rot-a:-3deg; --rot-b:4deg"><i></i></span>
-          <span class="nuage" style="--x:32%; --y:-18%; --l:44%; --h:210%; --c:var(--teal);    --o:.40; --dx:61s;  --dy:41s; --rx:-23s; --ry:-17s;  --amp-x:14%;  --amp-y:21%;  --rot-a:5deg;  --rot-b:-6deg"><i></i></span>
-          <span class="nuage" style="--x:58%; --y:22%;  --l:50%; --h:190%; --c:var(--accent);  --o:.26; --dx:37s;  --dy:29s; --rx:-5s; --ry:-21s;  --amp-x:17%;  --amp-y:27%; --rot-a:-6deg; --rot-b:2deg"><i></i></span>
-          <span class="nuage" style="--x:78%; --y:-12%; --l:38%; --h:200%; --c:var(--teal);    --o:.30; --dx:83s;  --dy:53s; --rx:-31s; --ry:-11s;  --amp-x:14%;  --amp-y:21%; --rot-a:2deg;  --rot-b:-4deg"><i></i></span>
+          <span class="nuage" style="--x:4%;  --y:6%;   --l:58%; --h:200%; --c:var(--accent);  --o:.52; --dx:31s;  --dy:21s; --rx:-6s; --ry:-3s;  --amp-x:12%;  --amp-y:23%; --rot-a:-3deg; --rot-b:4deg"><i></i></span>
+          <span class="nuage" style="--x:32%; --y:-18%; --l:44%; --h:210%; --c:var(--teal);    --o:.40; --dx:41s;  --dy:27s; --rx:-15s; --ry:-11s;  --amp-x:14%;  --amp-y:21%;  --rot-a:5deg;  --rot-b:-6deg"><i></i></span>
+          <span class="nuage" style="--x:58%; --y:22%;  --l:50%; --h:190%; --c:var(--accent);  --o:.26; --dx:25s;  --dy:19s; --rx:-3s; --ry:-14s;  --amp-x:17%;  --amp-y:27%; --rot-a:-6deg; --rot-b:2deg"><i></i></span>
+          <span class="nuage" style="--x:78%; --y:-12%; --l:38%; --h:200%; --c:var(--teal);    --o:.30; --dx:57s;  --dy:35s; --rx:-20s; --ry:-7s;  --amp-x:14%;  --amp-y:21%; --rot-a:2deg;  --rot-b:-4deg"><i></i></span>
         </div>
         <div class="nappe nappe-chaude">
-          <span class="nuage" style="--x:12%; --y:30%;  --l:46%; --h:180%; --c:var(--warning); --o:.40; --dx:43s;  --dy:37s; --rx:-13s; --ry:-27s;  --amp-x:14%;  --amp-y:25%; --rot-a:4deg;  --rot-b:-5deg"><i></i></span>
-          <span class="nuage" style="--x:40%; --y:-24%; --l:40%; --h:200%; --c:var(--danger);  --o:.26; --dx:71s;  --dy:47s; --rx:-19s; --ry:-7s;  --amp-x:12%;  --amp-y:23%; --rot-a:-2deg; --rot-b:6deg"><i></i></span>
-          <span class="nuage" style="--x:64%; --y:34%;  --l:44%; --h:170%; --c:var(--success); --o:.30; --dx:53s;  --dy:43s; --rx:-3s; --ry:-33s; --amp-x:14%;  --amp-y:28%; --rot-a:-5deg; --rot-b:3deg"><i></i></span>
-          <span class="nuage" style="--x:84%; --y:-6%;  --l:36%; --h:190%; --c:var(--warning); --o:.36; --dx:97s;  --dy:59s; --rx:-41s; --ry:-15s;  --amp-x:14%;  --amp-y:23%; --rot-a:3deg;  --rot-b:-3deg"><i></i></span>
+          <span class="nuage" style="--x:12%; --y:30%;  --l:46%; --h:180%; --c:var(--warning); --o:.40; --dx:29s;  --dy:25s; --rx:-9s; --ry:-18s;  --amp-x:14%;  --amp-y:25%; --rot-a:4deg;  --rot-b:-5deg"><i></i></span>
+          <span class="nuage" style="--x:40%; --y:-24%; --l:40%; --h:200%; --c:var(--danger);  --o:.26; --dx:47s;  --dy:31s; --rx:-13s; --ry:-5s;  --amp-x:12%;  --amp-y:23%; --rot-a:-2deg; --rot-b:6deg"><i></i></span>
+          <span class="nuage" style="--x:64%; --y:34%;  --l:44%; --h:170%; --c:var(--success); --o:.30; --dx:35s;  --dy:29s; --rx:-2s; --ry:-22s; --amp-x:14%;  --amp-y:28%; --rot-a:-5deg; --rot-b:3deg"><i></i></span>
+          <span class="nuage" style="--x:84%; --y:-6%;  --l:36%; --h:190%; --c:var(--warning); --o:.36; --dx:64s;  --dy:39s; --rx:-27s; --ry:-10s;  --amp-x:14%;  --amp-y:23%; --rot-a:3deg;  --rot-b:-3deg"><i></i></span>
         </div>
         <span class="voile"></span>
       </div>
@@ -401,8 +402,8 @@
     <h2>Ce qui change</h2>
     <ul>
       <li>Le flou ne bouge plus : il reste à <strong>34 px</strong> sur chaque nappe. La respiration de 19 à 41 px et la rotation complète en 43 s sont retirées.</li>
-      <li><strong>Huit nappes</strong>, chacune avec sa durée propre pour l'horizontale (37 à 97 s) et pour la verticale (29 à 59 s) : le trajet décrit une courbe qui ne se referme pas, et rien ne tourne en rond.</li>
-      <li>La couleur dérive par <strong>basculement entre deux palettes</strong>, froide (bleu, turquoise) puis chaude (ambre, vert, terre), sur 89 s et 67 s. Pas de rotation de teinte uniforme.</li>
+      <li><strong>Huit nappes</strong>, chacune avec sa durée propre pour l'horizontale (25 à 64 s) et pour la verticale (19 à 39 s) : le trajet décrit une courbe qui ne se referme pas, et rien ne tourne en rond.</li>
+      <li>La couleur dérive par <strong>basculement entre deux palettes</strong>, froide (bleu, turquoise) puis chaude (ambre, vert, terre), sur 63 s et 49 s. Pas de rotation de teinte uniforme.</li>
       <li>Un voile de surface garde le texte au-dessus de <strong>4,5:1</strong> pour le texte indicatif et <strong>7:1</strong> pour la saisie.</li>
     </ul>
   </section>
